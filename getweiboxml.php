@@ -48,16 +48,19 @@ else
 
     $new_article = array_diff_key($new_xml,$old_xml);
 
-    $line_notift = new line_notify_tool($client_id,$client_secret,$token);
-    foreach ($new_article as $notify_message)
+    if( count($new_article) > 0 )
     {
-        $message = "";
-        $message .= $notify_message["weibo_title"]." 發佈了一篇新訊息\n ";
-        $message .= $notify_message["title"]." \n";
-        $message .= $notify_message["link"]." \n";
-        $line_notift->send_notify($message);
+        $line_notify = new line_notify_tool($client_id, $client_secret, $token);
+        foreach ($new_article as $notify_message)
+        {
+            $message = "";
+            $message .= $notify_message["weibo_title"] . " 發佈了一篇新訊息\n ";
+            $message .= $notify_message["title"] . " \n";
+            $message .= $notify_message["link"] . " \n";
+            $line_notify->send_notify($message);
+        }
+        file_put_contents($rss_file_name, $newrss);
     }
-    file_put_contents($rss_file_name ,$newrss);
 }
 
 
