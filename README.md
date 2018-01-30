@@ -1,3 +1,8 @@
+# 更新紀錄
+## 2018.01.30
+新增了一個仿照[DIYgod/Weibo2RSS](https://github.com/DIYgod/Weibo2RSS)  的讀取微博方法，直接參考 [DIYgod/Weibo2RSS](https://github.com/DIYgod/Weibo2RSS) 使用的邏輯把頁面資料讀成json後存在本機內，
+使用方法與之前相同，只是把檔案改成[getweibojson.php](getweibojson.php)  即可
+
 # weibo2linenotify
 讀取微博的RSS，透過LineNotify服務追蹤
 
