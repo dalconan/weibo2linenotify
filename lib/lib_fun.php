@@ -1,6 +1,6 @@
 <?php
 require_once 'simple_html_dom.php';
-
+date_default_timezone_set('Asia/Taipei');
 /**
  *
  * @param $rss RSS內容
@@ -79,10 +79,10 @@ function parser2json($html)
 
 function weibo_getdate($html)
 {
-    $now = date("Y-m-d H:i");
+    $now = date("Y-m-d H:i:00");
     if (preg_match("/(\d+)分钟前/", $html,$matches))
     {
-        return date('Y-m-d H:i:', strtotime('-2 '.$matches[1].'hour', $now));
+        return date('Y-m-d H:i', strtotime('-'.$matches[1].' minute', strtotime($now)));
     }
     else if (preg_match("/今天 (\d+):(\d+)/", $html,$matches))
     {
