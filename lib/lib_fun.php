@@ -76,7 +76,10 @@ function parser2json($html)
     return $json;
 }
 
-
+/**
+ * 分析時間
+ * @param $html string 內容
+ */
 function weibo_getdate($html)
 {
     $now = date("Y-m-d H:i:00");
